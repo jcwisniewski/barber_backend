@@ -1,5 +1,6 @@
 const { Router } = require('express');
 const CustomerController = require('./controllers/CustomerController');
+const BarberController = require('./controllers/BarberController');
 
 
 const routes = Router();
@@ -25,6 +26,18 @@ routes.put('/customers/:telephone', CustomerController.update);
 
 // Route to delete a dev from the database
 routes.delete('/customers/:telephone', CustomerController.destroy);
+
+// Route to list all developers from the database
+routes.get('/barbers', BarberController.index);
+
+// Route to add a new dev to the database
+routes.post('/barbers', BarberController.store);
+
+// Route to update the info of a dev
+routes.put('/barbers/:email', BarberController.update);
+
+// Route to delete a dev from the database
+routes.delete('/barbers/:email', BarberController.destroy);
 
 // Search
 
